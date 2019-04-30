@@ -28,8 +28,6 @@ const configuration = {
       $components: path.resolve(__dirname, './src/components/'),
       $containers: path.resolve(__dirname, './src/containers/'),
       $images: path.resolve(__dirname, './src/images/'),
-      $dist: path.resolve(__dirname, './build'),
-      $publ: path.resolve(__dirname, './public'),
     },
     extensions: ['*', '.js', '.jsx'],
   },
