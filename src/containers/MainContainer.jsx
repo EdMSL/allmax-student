@@ -2,47 +2,47 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { changeTime } from '../redux/user/actions';
+import * as ACTIONS from '../redux/user/actions';
 import Timer from '../components/Timer';
 
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.timerId = null;
+    this.timerID = null;
   }
 
   componentDidMount() {
-    const { changeTime: changeTimer } = this.props;
+    const { changeTime } = this.props;
 
     this.timerId = setInterval(() => {
-      changeTimer();
+      changeTime();
     }, 1000);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
   render() {
-    const { time } = this.props;
+    const { timer } = this.props;
 
     return (
       <Timer
-        timer={time}
+        timer={timer.time}
       />
     );
   }
 }
 
 MainContainer.propTypes = {
-  time: PropTypes.string.isRequired,
+  timer: PropTypes.object.isRequired,
   changeTime: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => (
-  {
-    time: state.time,
-  }
-);
+const mapStateToProps = ({ timer, dates }) => ({ timer, dates });
 
 const mapDispatchToProps = {
-  changeTime,
+  changeTime: ACTIONS.changeTime,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

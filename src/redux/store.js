@@ -8,6 +8,7 @@ const persistConfig = {
   storage,
   blacklist: ['root'],
 };
+
 // const persistedReducer = persistReducer(persistConfig, reducer);
 const store = createStore(reducer);
 // const persistor = persistStore(store);
