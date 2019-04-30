@@ -1,23 +1,28 @@
-import { createReducer } from 'reduxsauce';
-import Types from './actions';
+// import { createReducer } from 'reduxsauce';
+import Types from './constants';
 
-// the initial state of this reducer
-export const INITIAL_STATE = { error: false, goodies: null };
+export const INITIAL_STATE = { time: new Date().toLocaleString() };
 
-// the eagle has landed
-export const success = (state = INITIAL_STATE, action) => {
-  return { ...state, error: false, goodies: action.goodies }
+// export const changeTimer = (state = INITIAL_STATE, action) => {
+//   return { ...state, time: new Date() };
+// };
+
+// export const HANDLERS = {
+//   [Types.CHANGE_TIME]: changeTimer,
+// };
+
+// export default createReducer(INITIAL_STATE, HANDLERS);
+
+const reducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case Types.CHANGE_TIME:
+      return {
+        ...state,
+        time: new Date().toLocaleString(),
+      };
+    default:
+      return state;
+  }
 };
 
-// uh oh
-export const failure = (state = INITIAL_STATE, action) => {
-  return { ...state, error: true, goodies: null }
-};
-
-// map our action types to our reducer functions
-export const HANDLERS = {
-  [Types.GOODS_SUCCESS]: success,
-  [Types.GOODS_FAILURE]: failure
-};
-
-export default createReducer(INITIAL_STATE, HANDLERS);
+export default reducer;

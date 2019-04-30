@@ -15,7 +15,7 @@ const PATHS = {
 const configuration = {
   mode: 'development',
   entry: {
-    main: `${PATHS.src}/index.js`,
+    main: `${PATHS.src}/index.jsx`,
   },
   output: {
     path: PATHS.dist,
