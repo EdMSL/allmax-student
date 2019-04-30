@@ -1,5 +1,5 @@
 import { createReducer } from 'reduxsauce';
-import Types from './constants';
+import Types from '$redux/user/constants';
 
 export const INITIAL_STATE = {
   dates: [],

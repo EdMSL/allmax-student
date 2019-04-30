@@ -2,14 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import * as ACTIONS from '../redux/user/actions';
-import Timer from '../components/Timer';
+import * as ACTIONS from '$redux/user/actions';
+import Timer from '$components/Timer';
 
 class MainContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.timerID = null;
-  }
+  timerID = null;
 
   componentDidMount() {
     const { changeTime } = this.props;
@@ -23,12 +20,17 @@ class MainContainer extends React.Component {
     clearInterval(this.timerID);
   }
 
+  // onPress = () => {
+
+  // };
+
   render() {
     const { timer } = this.props;
 
     return (
       <Timer
         timer={timer.time}
+        onPress={this.onPress}
       />
     );
   }

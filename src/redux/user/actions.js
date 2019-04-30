@@ -1,4 +1,4 @@
-import Types from './constants';
+import Types from '$redux/user/constants';
 
 const changeTime = () => ({
   type: Types.CHANGE_TIME,

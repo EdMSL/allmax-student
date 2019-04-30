@@ -22,6 +22,17 @@ const configuration = {
     publicPath: '/',
     filename: 'js/[name].js',
   },
+  resolve: {
+    alias: {
+      $redux: path.resolve(__dirname, './src/redux/'),
+      $components: path.resolve(__dirname, './src/components/'),
+      $containers: path.resolve(__dirname, './src/containers/'),
+      $images: path.resolve(__dirname, './src/images/'),
+      $dist: path.resolve(__dirname, './build'),
+      $publ: path.resolve(__dirname, './public'),
+    },
+    extensions: ['*', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
@@ -96,9 +107,6 @@ const configuration = {
         ],
       },
     ],
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
   },
   devServer: {
     contentBase: PATHS.dist,

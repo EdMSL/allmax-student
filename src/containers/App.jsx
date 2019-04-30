@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import createStore from '../redux/store';
 
-import MainContainer from './MainContainer';
+import createStore from '$redux/store';
+import MainContainer from '$containers/MainContainer';
 
 const { store } = createStore();
 // const { store, persistor } = createStore();
