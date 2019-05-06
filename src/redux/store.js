@@ -7,24 +7,18 @@ import reducer from '$redux/user/reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['root'],
+  blacklist: ['timer'],
 };
 
-// const persistedReducer = persistReducer(persistConfig, reducer);
-const store = createStore(reducer);
-// const persistor = persistStore(store);
-// console.log(createStore);
+const persistedReducer = persistReducer(persistConfig, reducer);
+const store = createStore(persistedReducer);
+const persistor = persistStore(store);
 
 const create = () => (
   {
     store,
+    persistor
   }
 );
-// const create = () => (
-//   {
-//     store,
-//     persistor
-//   }
-// );
 
 export default create;
