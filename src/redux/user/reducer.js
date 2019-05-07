@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import timer from '$redux/user/timer-reducer';
-import dates from '$redux/user/dates-reducer';
+import todo from '~/redux/user/todo-reducer';
+import github from '~/redux/user/github-reducer';
 
 export default combineReducers({
-  timer,
-  dates
+  todo,
+  github,
 });

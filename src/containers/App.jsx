@@ -1,18 +1,22 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import createStore from '$redux/store';
-import MainContainer from '$containers/MainContainer';
+
+import { TodoContainer } from '~/containers/TodoContainer';
+import { GithubContainer } from '~/containers/GithubContainer';
 
 const { store, persistor } = createStore();
 
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <MainContainer />
+      <TodoContainer />
+      <GithubContainer />
     </PersistGate>
   </Provider>
 );
 
-export default App;
+export default hot(App);

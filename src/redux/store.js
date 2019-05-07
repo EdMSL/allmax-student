@@ -7,7 +7,7 @@ import reducer from '$redux/user/reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['timer'],
+  blacklist: ['todo', 'github'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

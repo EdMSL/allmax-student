@@ -1,15 +1,33 @@
-import Types from '$redux/user/constants';
+import Types from '~/redux/user/constants';
 
-const changeTime = () => ({
-  type: Types.CHANGE_TIME,
+const changeCounter = () => ({
+  type: Types.CHANGE_COUNTER,
 });
 
-const addDate = date => ({
-  type: Types.ADD_DATE,
-  date,
+const changeTaskText = (name, taskText) => ({
+  type: Types.CHANGE_TASK_TEXT,
+  name,
+  taskText,
+});
+
+const addTask = () => ({
+  type: Types.ADD_TASK,
+});
+
+const completeTask = id => ({
+  type: Types.COMPLETE_TASK,
+  id,
+});
+
+const deleteTask = id => ({
+  type: Types.DELETE_TASK,
+  id,
 });
 
 export {
-  changeTime,
-  addDate,
+  changeCounter,
+  changeTaskText,
+  addTask,
+  completeTask,
+  deleteTask,
 };

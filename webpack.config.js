@@ -28,6 +28,7 @@ const configuration = {
       $components: path.resolve(__dirname, './src/components/'),
       $containers: path.resolve(__dirname, './src/containers/'),
       $images: path.resolve(__dirname, './src/images/'),
+      'react-dom': '@hot-loader/react-dom'
     },
     extensions: ['*', '.js', '.jsx'],
   },

@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import * as ACTIONS from '$redux/user/actions';
-import Timer from '$components/Timer';
+import * as ACTIONS from '~/redux/user/actions';
+import Timer from '~/components/Timer';
 
-class MainContainer extends React.Component {
+class UnconnectedMainContainer extends React.Component {
   timerID = null;
 
   componentDidMount() {
@@ -16,35 +16,36 @@ class MainContainer extends React.Component {
     }, 1000);
   }
 
+  componentDidUpdate() {
+    console.log('componentDidUpdate MainContainer');
+  }
+
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
-  // onPress = () => {
-
-  // };
-
   render() {
-    const { timer } = this.props;
+    const { time } = this.props;
+
+    console.log('render mainContainer');
 
     return (
       <Timer
-        timer={timer.time}
-        onPress={this.onPress}
+        timer={time}
       />
     );
   }
 }
 
-MainContainer.propTypes = {
-  timer: PropTypes.object.isRequired,
+UnconnectedMainContainer.propTypes = {
+  time: PropTypes.string.isRequired,
   changeTime: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ timer, dates }) => ({ timer, dates });
+const mapStateToProps = ({ timer: { time }, dates }) => ({ time, dates });
 
 const mapDispatchToProps = {
   changeTime: ACTIONS.changeTime,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+export const MainContainer = connect(mapStateToProps, mapDispatchToProps)(UnconnectedMainContainer);

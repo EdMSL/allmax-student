@@ -2,10 +2,12 @@
   "presets": ["@babel/env", "@babel/preset-react"],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
+    "react-hot-loader/babel",
     ["module-resolver", {
       "root": ["./"],
       "alias": {
         "$redux": "./src/redux",
+        "~": "./src",
         "$components": "./src/components",
         "$containers": "./src/containers",
         "$images": "./src/images"
