@@ -5,9 +5,8 @@ import { TodoTaskField } from '~/components/TodoTaskField';
 import { TodoTaskButton } from '~/components/TodoTaskButton';
 
 import * as ACTIONS from '~/redux/user/actions';
-import constants from '../redux/user/constants';
 
-class UnconnectedTodoTaskForm extends React.PureComponent {
+class UnconnectedTodoTaskForm extends React.Component {
   onTaskFieldChange = (event) => {
     const { name, value } = event.target;
     const { changeTaskText } = this.props;
@@ -17,6 +16,8 @@ class UnconnectedTodoTaskForm extends React.PureComponent {
 
   render() {
     const { taskText, onSubmit } = this.props;
+
+    console.log('render Form');
 
     return (
       <form

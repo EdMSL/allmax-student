@@ -8,7 +8,10 @@ export const INITIAL_STATE = {
 };
 
 export const changeCounter = (state = INITIAL_STATE, action) => {
-  return { ...state, counter: state.counter + 1 };
+  return {
+    ...state,
+    counter: state.counter + 1,
+  };
 };
 
 export const changeTaskText = (state = INITIAL_STATE, action) => {
@@ -34,15 +37,11 @@ export const addTask = (state = INITIAL_STATE, action) => {
 export const completeTask = (state = INITIAL_STATE, action) => {
   return {
     ...state,
-    tasks: state.tasks.map((task) => {
-      const currentTask = task;
-
-      if (task.id === action.id) {
-        currentTask.completed = !task.completed;
-      }
-
-      return currentTask;
-    })
+    tasks: state.tasks.map(task => (
+      (task.id === action.id)
+        ? { ...task, completed: !task.completed }
+        : task
+    ))
   };
 };
 

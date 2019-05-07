@@ -1,8 +1,12 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
 import { TodoTaskItem } from '~/components/TodoTaskItem';
 
-const UnconnectedTasksList = ({ tasks, onChange, onClick }) => {
+import * as ACTIONS from '~/redux/user/actions';
+
+const UnconnectedTasksList = ({ tasks, onTaskCheckboxlChange, onDeleteTaskButtonClick }) => {
+  console.log('render List');
   const items = tasks.map((task) => {
     return (
       <TodoTaskItem
@@ -10,8 +14,8 @@ const UnconnectedTasksList = ({ tasks, onChange, onClick }) => {
         key={task.id}
         description={task.description}
         completed={task.completed}
-        onChange={onChange}
-        onClick={onClick}
+        onChange={onTaskCheckboxlChange}
+        onClick={onDeleteTaskButtonClick}
       />
     );
   });
@@ -23,4 +27,52 @@ const UnconnectedTasksList = ({ tasks, onChange, onClick }) => {
   );
 };
 
-export const TodoTasksList = UnconnectedTasksList;
+// class UnconnectedTasksList extends React.Component {
+//   onTaskCheckboxlChange = (id) => {
+//     const { completeTask } = this.props;
+
+//     completeTask(id);
+//   }
+
+//   onDeleteTaskButtonClick = (id) => {
+//     const { deleteTask } = this.props;
+
+//     deleteTask(id);
+//   }
+
+//   render() {
+//     console.log('render List');
+//     const { tasks } = this.props;
+
+//     const items = tasks.map((task) => {
+//       return (
+//         <TodoTaskItem
+//           id={task.id}
+//           key={task.id}
+//           description={task.description}
+//           completed={task.completed}
+//           onChange={this.onTaskCheckboxlChange}
+//           onClick={this.onDeleteTaskButtonClick}
+//         />
+//       );
+//     });
+
+//     return (
+//       <ul className="tasks__list">
+//         {items}
+//       </ul>
+//     );
+//   }
+// }
+
+// const mapStateToProps = ({ todo: { tasks } }) => ({ tasks });
+
+// const mapDispatchToProps = {
+//   addTask: ACTIONS.addTask,
+//   completeTask: ACTIONS.completeTask,
+//   deleteTask: ACTIONS.deleteTask,
+// };
+
+// export const TodoTasksList = connect(mapStateToProps, mapDispatchToProps)(UnconnectedTasksList);
+
+export const TodoTasksList = React.memo(UnconnectedTasksList);
