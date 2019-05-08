@@ -2,7 +2,9 @@ import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import reducer from '$redux/user/reducer';
+import {
+  reducers,
+} from '~/redux/reducers';
 
 const persistConfig = {
   key: 'root',
@@ -10,7 +12,7 @@ const persistConfig = {
   blacklist: ['todo', 'github'],
 };
 
-const persistedReducer = persistReducer(persistConfig, reducer);
+const persistedReducer = persistReducer(persistConfig, reducers);
 const store = createStore(persistedReducer);
 const persistor = persistStore(store);
 

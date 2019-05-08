@@ -1,4 +1,7 @@
-import React from 'react';
+import * as React from 'react';
+import {
+  PureComponent,
+} from 'react';
 import { connect } from 'react-redux';
 
 import { TodoTaskForm } from '~/components/TodoTaskForm';
@@ -6,7 +9,15 @@ import { TodoTasksList } from '~/components/TodoTasksList';
 
 import * as ACTIONS from '~/redux/user/actions';
 
-class UnconnectedTodoContainer extends React.PureComponent {
+interface Props {
+  taskText: string,
+  tasks: any[],
+  addTask: () => object,
+  completeTask: (id: string) => object,
+  deleteTask: (id: string) => object,
+}
+
+class UnconnectedTodoContainer extends PureComponent<Props> {
   onSubmit = (event) => {
     const { taskText, addTask } = this.props;
 
@@ -37,10 +48,10 @@ class UnconnectedTodoContainer extends React.PureComponent {
     console.log('render TodoContainer');
 
     return (
-      <>
+      <div>
         <TodoTaskForm onSubmit={this.onSubmit} />
         <TodoTasksList tasks={tasks} onTaskCheckboxlChange={this.onTaskCheckboxlChange} onDeleteTaskButtonClick={this.onDeleteTaskButtonClick} />
-      </>
+      </div>
     );
   }
 }

@@ -24,10 +24,22 @@ const deleteTask = id => ({
   id,
 });
 
+const changeProjectText = (name: string, projectText: string) => ({
+  type: Types.CHANGE_PROJECT_TEXT,
+  name,
+  projectText,
+});
+
+const findProject = () => ({
+  type: Types.FIND_PROJECT,
+});
+
 export {
   changeCounter,
   changeTaskText,
   addTask,
   completeTask,
   deleteTask,
+  changeProjectText,
+  findProject,
 };

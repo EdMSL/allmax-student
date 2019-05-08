@@ -15,7 +15,7 @@ const PATHS = {
 const configuration = {
   mode: 'development',
   entry: {
-    main: `${PATHS.src}/index.jsx`,
+    main: `${PATHS.src}/index.tsx`,
   },
   output: {
     path: PATHS.dist,
@@ -25,12 +25,10 @@ const configuration = {
   resolve: {
     alias: {
       $redux: path.resolve(__dirname, './src/redux/'),
-      $components: path.resolve(__dirname, './src/components/'),
-      $containers: path.resolve(__dirname, './src/containers/'),
-      $images: path.resolve(__dirname, './src/images/'),
+      '~': path.resolve(__dirname, './src/'),
       'react-dom': '@hot-loader/react-dom'
     },
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.ts', '.tsx', '.jsx'],
   },
   module: {
     rules: [
@@ -41,6 +39,10 @@ const configuration = {
         options: {
           presets: ['@babel/env'],
         },
+      },
+      {
+        test: /\.(ts|tsx)?$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.(sa|sc|c)ss$/,
