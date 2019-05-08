@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { GithubSearchForm } from '~/components/GithubSearchForm';
 
-import * as ACTIONS from '~/redux/actions';
+import ACTIONS from '~/redux/actions';
 
 interface Props {
   projectText: string;

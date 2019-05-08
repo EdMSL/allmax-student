@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { TodoTaskField } from '~/components/TodoTaskField';
 import { TodoTaskButton } from '~/components/TodoTaskButton';
 
-import * as ACTIONS from '~/redux/actions';
+import ACTIONS from '~/redux/actions';
 
 // interface Props {
 //   changeTaskText: () => void;
@@ -73,6 +73,5 @@ const mapStateToProps = ({ todo: { taskText } }) => ({ taskText });
 const mapDispatchToProps = {
   changeTaskText: ACTIONS.changeTaskText,
 };
-console.log(ACTIONS);
 
 export const TodoTaskForm = connect(mapStateToProps, mapDispatchToProps)(UnconnectedTodoTaskForm);
