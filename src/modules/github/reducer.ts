@@ -1,5 +1,5 @@
 import { createReducer } from 'reduxsauce';
-import Types from '~/redux/user/constants';
+import Types from '~/redux/actionTypes';
 
 export interface IGithubState {
   // projectText

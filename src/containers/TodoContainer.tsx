@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { TodoTaskForm } from '~/components/TodoTaskForm';
 import { TodoTasksList } from '~/components/TodoTasksList';
 
-import * as ACTIONS from '~/redux/user/actions';
+import * as ACTIONS from '~/redux/actions';
 
 interface Props {
   taskText: string,

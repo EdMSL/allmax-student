@@ -1,0 +1,5 @@
+export const CHANGE_COUNTER = 'CHANGE_COUNTER';
+export const CHANGE_TASK_TEXT = 'CHANGE_TASK_TEXT';
+export const ADD_TASK = 'ADD_TASK';
+export const COMPLETE_TASK = 'COMPLETE_TASK';
+export const DELETE_TASK = 'DELETE_TASK';

@@ -1,0 +1,2 @@
+export const CHANGE_PROJECT_TEXT = 'CHANGE_PROJECT_TEXT';
+export const FIND_PROJECT = 'FIND_PROJECT';

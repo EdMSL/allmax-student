@@ -1,10 +1,12 @@
-import Types from '~/redux/user/constants';
+import Types from '~/redux/actionTypes';
+import * as githubActions from '~/modules/github/actions';
+import * as todoActions from '~/modules/todo/actions';
 
 const changeCounter = () => ({
   type: Types.CHANGE_COUNTER,
 });
 
-const changeTaskText = (name, taskText) => ({
+const changeTaskText = (name: string, taskText: string) => ({
   type: Types.CHANGE_TASK_TEXT,
   name,
   taskText,
@@ -14,12 +16,12 @@ const addTask = () => ({
   type: Types.ADD_TASK,
 });
 
-const completeTask = id => ({
+const completeTask = (id: string) => ({
   type: Types.COMPLETE_TASK,
   id,
 });
 
-const deleteTask = id => ({
+const deleteTask = (id: string) => ({
   type: Types.DELETE_TASK,
   id,
 });
@@ -36,10 +38,15 @@ const findProject = () => ({
 
 export {
   changeCounter,
-  changeTaskText,
-  addTask,
-  completeTask,
-  deleteTask,
-  changeProjectText,
-  findProject,
-};
+changeTaskText,
+addTask,
+completeTask,
+deleteTask,
+changeProjectText,
+findProject,
+}
+
+// export default {
+//   ...githubActions,
+//   ...todoActions,
+// };
