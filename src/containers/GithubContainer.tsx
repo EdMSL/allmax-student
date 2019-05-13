@@ -10,12 +10,8 @@ import ACTIONS from '~/redux/actions';
 interface Props {
   projectText: string;
   isLoading: boolean;
-  incomplete_results: null | boolean;
+  isHaveResaults: boolean;
   items: any[];
-  // html_url: string;
-  // name: string;
-  // stargazers_count: number;
-  // watchers_count: number;
   changeProjectText: typeof ACTIONS.changeProjectText;
   findProject: typeof ACTIONS.findProject;
 }
@@ -28,14 +24,22 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
     changeProjectText(name, value);
   };
 
-  onProjectFormSubmit = () => {
+  onProjectFormSubmit = (event) => {
+    const { projectText } = this.props;
+
+    event.preventDefault();
+
+    if (projectText.trim() === '') {
+      return;
+    }
+
     const { findProject } = this.props;
 
     findProject();
   };
 
   render() {
-    const { projectText, isLoading, incomplete_results, items } = this.props;
+    const { projectText, isLoading, isHaveResaults, items } = this.props;
 
     console.log('render GithubContainer');
     return (
@@ -48,7 +52,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
         />
         <GithubProjectView
           isLoading={isLoading}
-          isHaveResaults={incomplete_results}
+          isHaveResaults={isHaveResaults}
           items={items}
         />
       </div>
@@ -56,7 +60,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   }
 }
 
-const mapStateToProps = ({ github: { projectText, isLoading, incomplete_results, items } }) => ({ projectText, isLoading, incomplete_results, items});
+const mapStateToProps = ({ github: { projectText, isLoading, isHaveResaults, items } }) => ({ projectText, isLoading, isHaveResaults, items});
 
 const mapDispatchToProps = {
   changeProjectText: ACTIONS.changeProjectText,

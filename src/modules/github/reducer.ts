@@ -9,12 +9,8 @@ export interface IGithubState {
 export const INITIAL_STATE: IGithubState = {
   projectText: '',
   isLoading: false,
-  incomplete_results: null,
+  isHaveResaults: false,
   items: [],
-  // html_url: '',
-  // name: '',
-  // stargazers_count: null,
-  // watchers_count: null,
 };
 
 export const changeProjectText = (state = INITIAL_STATE, action) => {

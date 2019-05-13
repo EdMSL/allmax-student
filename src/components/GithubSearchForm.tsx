@@ -8,7 +8,7 @@ import { GithubProjectButton } from '~/components/GithubProjectButton';
 interface Props {
   projectText: string;
   onProjectFieldChange: (event: object) => void;
-  onSubmit: () => void;
+  onSubmit: (event: object) => void;
 };
 
 export const GithubSearchForm: React.FunctionComponent<Props> = memo(({

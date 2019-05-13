@@ -3,26 +3,19 @@ import {
   memo,
 } from 'react';
 
+import { GithubProjectsList } from '~/components/GithubProjectsList';
+
 interface Props {
   isLoading: boolean;
-  isHaveResaults: null | boolean;
+  isHaveResaults: boolean;
   items: any[];
-  // htmlUrl: string;
-  // name: string;
-  // stargazerCount: number;
-  // watchersCount: number;
 };
 
-const renderProjectView = () => (
-  <>
-    <p>Project</p>
-  </>
-);
-
 export const GithubProjectView: React.FunctionComponent<Props> = memo(({ isLoading, isHaveResaults, items }) => {
-  const isProjectsLoaded = (isHaveResaults === null) ? <p>Поиск не осуществлен</p> :
+  console.log(isHaveResaults);
+  const isProjectsLoaded = (isHaveResaults === false) ? <p>Поиск не осуществлен</p> :
     (isLoading) ? <p>Загрузка</p> :
-    renderProjectView();
+    <GithubProjectsList items={items} />;
 
   return (
     <div>
