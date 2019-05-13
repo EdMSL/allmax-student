@@ -18,3 +18,8 @@ export const findProjectOk = (items) => ({
 export const findProjectFail = () => ({
   type: Types.FIND_PROJECT_FAIL,
 });
+
+export const findProjectFetch = (projectText) => ({
+  type: Types.FIND_PROJECT_FETCH,
+  projectText,
+});
