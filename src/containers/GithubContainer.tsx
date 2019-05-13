@@ -12,6 +12,7 @@ interface Props {
   projectText: IGithubState['projectText'];
   isLoading: IGithubState['isLoading'];
   isHaveResaults: IGithubState['isHaveResaults'];
+  isError: IGithubState['isError'];
   items: IGithubState['items'];
   changeProjectText: typeof ACTIONS.changeProjectText;
   findProjectFetch: typeof ACTIONS.findProjectFetch;
@@ -38,7 +39,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   };
 
   render() {
-    const { projectText, isLoading, isHaveResaults, items } = this.props;
+    const { projectText, isLoading, isHaveResaults, isError, items } = this.props;
 
     console.log('render GithubContainer');
     return (
@@ -52,6 +53,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
         <GithubProjectView
           isLoading={isLoading}
           isHaveResaults={isHaveResaults}
+          isError={isError}
           items={items}
         />
       </div>
@@ -59,7 +61,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   }
 }
 
-const mapStateToProps = ({ github: { projectText, isLoading, isHaveResaults, items } }) => ({ projectText, isLoading, isHaveResaults, items});
+const mapStateToProps = ({ github: { projectText, isLoading, isHaveResaults, isError, items } }) => ({ projectText, isLoading, isHaveResaults, isError, items});
 
 const mapDispatchToProps = {
   changeProjectText: ACTIONS.changeProjectText,
