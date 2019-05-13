@@ -1,12 +1,19 @@
 import { createReducer } from 'reduxsauce';
 import Types from '~/redux/actionTypes';
 
+export interface Project {
+  name: string;
+  html_url: string;
+  stargazers_count: number;
+  watchers_count: number;
+};
+
 export interface IGithubState {
   projectText: string;
   isLoading: boolean;
   isHaveResaults: boolean;
-  items: any[];
-}
+  items: Project[];
+};
 
 export const INITIAL_STATE: IGithubState = {
   projectText: '',
@@ -27,11 +34,6 @@ export const findProject = (state = INITIAL_STATE, action) => {
     ...state,
   };
 };
-// export const findProject = (state = INITIAL_STATE, action) => {
-//   return {
-//     ...state,
-//   };
-// };
 
 export const HANDLERS = {
   [Types.CHANGE_PROJECT_TEXT]: changeProjectText,

@@ -5,14 +5,15 @@ import {
 
 import { GithubProjectsList } from '~/components/GithubProjectsList';
 
+import { IGithubState } from '~/modules/github/reducer';
+
 interface Props {
-  isLoading: boolean;
-  isHaveResaults: boolean;
-  items: any[];
+  isLoading: IGithubState['isLoading'];
+  isHaveResaults: IGithubState['isHaveResaults'];
+  items: IGithubState['items'];
 };
 
 export const GithubProjectView: React.FunctionComponent<Props> = memo(({ isLoading, isHaveResaults, items }) => {
-  console.log(isHaveResaults);
   const isProjectsLoaded = (isHaveResaults === false) ? <p>Поиск не осуществлен</p> :
     (isLoading) ? <p>Загрузка</p> :
     <GithubProjectsList items={items} />;

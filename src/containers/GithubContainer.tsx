@@ -10,9 +10,9 @@ import { IGithubState } from '~/modules/github/reducer';
 
 interface Props {
   projectText: IGithubState['projectText'];
-  isLoading: boolean;
-  isHaveResaults: boolean;
-  items: any[];
+  isLoading: IGithubState['isLoading'];
+  isHaveResaults: IGithubState['isHaveResaults'];
+  items: IGithubState['items'];
   changeProjectText: typeof ACTIONS.changeProjectText;
   findProject: typeof ACTIONS.findProject;
 }

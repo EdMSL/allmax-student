@@ -1,7 +1,9 @@
 import * as React from 'react';
 
+import { ITodoState } from '~/modules/todo/reducer';
+
 interface Props {
-  taskText: string;
+  taskText: ITodoState['taskText'];
   onTaskFieldChange: (event: object) => void;
 };
 

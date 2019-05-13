@@ -11,11 +11,11 @@ import ACTIONS from '~/redux/actions';
 import { ITodoState } from '~/modules/todo/reducer';
 
 interface Props {
-  taskText: string,
-  tasks: ITodoState['tasks'],
-  addTask: typeof ACTIONS.addTask,
-  completeTask: typeof ACTIONS.completeTask,
-  deleteTask: typeof ACTIONS.deleteTask,
+  taskText: ITodoState['taskText'];
+  tasks: ITodoState['tasks'];
+  addTask: typeof ACTIONS.addTask;
+  completeTask: typeof ACTIONS.completeTask;
+  deleteTask: typeof ACTIONS.deleteTask;
 }
 
 class UnconnectedTodoContainer extends PureComponent<Props> {

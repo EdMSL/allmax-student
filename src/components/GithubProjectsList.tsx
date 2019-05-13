@@ -5,15 +5,10 @@ import {
 
 import { GithubProjectsItem } from '~/components/GithubProjectsItem';
 
-interface Project {
-  name: string;
-  html_url: string;
-  stargazers_count: number;
-  watchers_count: number;
-};
+import { IGithubState } from '~/modules/github/reducer';
 
 interface Props {
-  items: Project[];
+  items: IGithubState['items'];
 };
 
 export const GithubProjectsList: React.FunctionComponent<Props> = memo(({ items }) => {

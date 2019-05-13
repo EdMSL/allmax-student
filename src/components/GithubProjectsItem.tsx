@@ -1,10 +1,12 @@
 import * as React from 'react';
 
+import { Project } from '~/modules/github/reducer';
+
 interface Props {
-  name: string;
-  html_url: string;
-  stargazers_count: number;
-  watchers_count: number;
+  name: Project['name'];
+  html_url: Project['html_url'];
+  stargazers_count: Project['stargazers_count'];
+  watchers_count: Project['watchers_count'];
 };
 
 export const GithubProjectsItem: React.FunctionComponent<Props> = ({ name, html_url, stargazers_count, watchers_count }) => {

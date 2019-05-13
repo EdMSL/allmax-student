@@ -6,6 +6,7 @@ import { TodoTaskField } from '~/components/TodoTaskField';
 import { TodoTaskButton } from '~/components/TodoTaskButton';
 
 import ACTIONS from '~/redux/actions';
+import { ITodoState } from '~/modules/todo/reducer';
 
 // interface Props {
 //   changeTaskText: () => void;
@@ -39,9 +40,9 @@ import ACTIONS from '~/redux/actions';
 // const result = <ForcedType>externalFunction(data); or externalFunction(data) as ForcedType;
 
 interface Props {
-  changeTaskText: (name: string, value: string) => object,
-  onSubmit: (event: object) => void,
-  taskText: string,
+  taskText: ITodoState['taskText'];
+  changeTaskText: (name: string, value: string) => object;
+  onSubmit: (event: object) => void;
 }
 
 class UnconnectedTodoTaskForm extends React.Component<Props> {
