@@ -52,5 +52,3 @@ const mapDispatchToProps = {
 };
 
 export const GithubContainer = connect(mapStateToProps, mapDispatchToProps)(UnconnectedGithubContainer);
-
-// export const GithubContainer = UnconnectedGithubContainer;

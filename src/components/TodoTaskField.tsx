@@ -5,7 +5,7 @@ interface Props {
   onTaskFieldChange: (event: object) => void;
 };
 
-const UnconnectedTodoTaskField = ({ taskText, onTaskFieldChange } : Props) => (
+export const TodoTaskField: React.FunctionComponent<Props> = ({ taskText, onTaskFieldChange }) => (
   <input
     type="text"
     name="taskText"
@@ -14,5 +14,3 @@ const UnconnectedTodoTaskField = ({ taskText, onTaskFieldChange } : Props) => (
     onChange={onTaskFieldChange}
   />
 );
-
-export const TodoTaskField = UnconnectedTodoTaskField;

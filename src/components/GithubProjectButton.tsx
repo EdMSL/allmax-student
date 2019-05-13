@@ -3,7 +3,7 @@ import {
   memo,
 } from 'react';
 
-export const GithubProjectButton = memo(() => {
+export const GithubProjectButton: React.FunctionComponent = memo(() => {
   console.log('render GitButton');
 
   return (

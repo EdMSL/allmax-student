@@ -12,9 +12,9 @@ import ACTIONS from '~/redux/actions';
 interface Props {
   taskText: string,
   tasks: any[],
-  addTask: () => object,
-  completeTask: (id: string) => object,
-  deleteTask: (id: string) => object,
+  addTask: typeof ACTIONS.addTask,
+  completeTask: typeof ACTIONS.completeTask,
+  deleteTask: typeof ACTIONS.deleteTask,
 }
 
 class UnconnectedTodoContainer extends PureComponent<Props> {
