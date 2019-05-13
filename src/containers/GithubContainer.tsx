@@ -7,6 +7,7 @@ import { GithubProjectView } from '~/components/GithubProjectView';
 
 import ACTIONS from '~/redux/actions';
 import { IGithubState } from '~/modules/github/reducer';
+import { Loader } from '~/modules/github/loader';
 
 interface Props {
   projectText: IGithubState['projectText'];
@@ -14,8 +15,22 @@ interface Props {
   isHaveResaults: IGithubState['isHaveResaults'];
   items: IGithubState['items'];
   changeProjectText: typeof ACTIONS.changeProjectText;
-  findProject: typeof ACTIONS.findProject;
+  findProjectRequest: typeof ACTIONS.findProjectRequest;
+  findProjectOk: typeof ACTIONS.findProjectOk;
+  findProjectFail: typeof ACTIONS.findProjectFail;
 }
+
+async function findProject(projectName, findProjectRequest, findProjectOk, findProjectFail) {
+  findProjectRequest(projectName);
+  try {
+    const projects = await Loader.loadData(projectName);
+    console.log(projects);
+    findProjectOk(projects.items);
+  } catch {
+    findProjectFail();
+  }
+
+};
 
 class UnconnectedGithubContainer extends React.PureComponent<Props> {
   onProjectFieldChange = (event) => {
@@ -26,7 +41,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   };
 
   onProjectFormSubmit = (event) => {
-    const { projectText } = this.props;
+    const { projectText,findProjectRequest, findProjectOk, findProjectFail } = this.props;
 
     event.preventDefault();
 
@@ -34,9 +49,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
       return;
     }
 
-    const { findProject } = this.props;
-
-    findProject();
+    findProject(projectText, findProjectRequest, findProjectOk, findProjectFail);
   };
 
   render() {
@@ -65,7 +78,9 @@ const mapStateToProps = ({ github: { projectText, isLoading, isHaveResaults, ite
 
 const mapDispatchToProps = {
   changeProjectText: ACTIONS.changeProjectText,
-  findProject: ACTIONS.findProject,
+  findProjectRequest: ACTIONS.findProjectRequest,
+  findProjectOk: ACTIONS.findProjectOk,
+  findProjectFail: ACTIONS.findProjectFail,
 };
 
 export const GithubContainer = connect(mapStateToProps, mapDispatchToProps)(UnconnectedGithubContainer);
