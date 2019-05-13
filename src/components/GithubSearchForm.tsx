@@ -11,7 +11,7 @@ interface Props {
   onSubmit: () => void;
 };
 
-export const GithubSearchForm = memo<Props>(({
+export const GithubSearchForm: React.FunctionComponent<Props> = memo(({
   projectText,
   onProjectFieldChange,
   onSubmit,

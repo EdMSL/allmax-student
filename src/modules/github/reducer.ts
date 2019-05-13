@@ -8,10 +8,13 @@ export interface IGithubState {
 
 export const INITIAL_STATE: IGithubState = {
   projectText: '',
-  html_url: '',
-  name: '',
-  stargazers_count: null,
-  watchers_count: null,
+  isLoading: false,
+  incomplete_results: null,
+  items: [],
+  // html_url: '',
+  // name: '',
+  // stargazers_count: null,
+  // watchers_count: null,
 };
 
 export const changeProjectText = (state = INITIAL_STATE, action) => {
@@ -26,6 +29,11 @@ export const findProject = (state = INITIAL_STATE, action) => {
     ...state,
   };
 };
+// export const findProject = (state = INITIAL_STATE, action) => {
+//   return {
+//     ...state,
+//   };
+// };
 
 export const HANDLERS = {
   [Types.CHANGE_PROJECT_TEXT]: changeProjectText,
