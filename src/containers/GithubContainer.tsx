@@ -6,9 +6,10 @@ import { GithubSearchForm } from '~/components/GithubSearchForm';
 import { GithubProjectView } from '~/components/GithubProjectView';
 
 import ACTIONS from '~/redux/actions';
+import { IGithubState } from '~/modules/github/reducer';
 
 interface Props {
-  projectText: string;
+  projectText: IGithubState['projectText'];
   isLoading: boolean;
   isHaveResaults: boolean;
   items: any[];

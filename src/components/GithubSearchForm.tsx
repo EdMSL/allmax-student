@@ -5,8 +5,10 @@ import {
 import { GithubSearchField } from '~/components/GithubSearchField';
 import { GithubProjectButton } from '~/components/GithubProjectButton';
 
+import { IGithubState } from '~/modules/github/reducer';
+
 interface Props {
-  projectText: string;
+  projectText: IGithubState['projectText'];
   onProjectFieldChange: (event: object) => void;
   onSubmit: (event: object) => void;
 };

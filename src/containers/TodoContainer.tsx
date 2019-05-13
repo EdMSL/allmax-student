@@ -8,10 +8,11 @@ import { TodoTaskForm } from '~/components/TodoTaskForm';
 import { TodoTasksList } from '~/components/TodoTasksList';
 
 import ACTIONS from '~/redux/actions';
+import { ITodoState } from '~/modules/todo/reducer';
 
 interface Props {
   taskText: string,
-  tasks: any[],
+  tasks: ITodoState['tasks'],
   addTask: typeof ACTIONS.addTask,
   completeTask: typeof ACTIONS.completeTask,
   deleteTask: typeof ACTIONS.deleteTask,

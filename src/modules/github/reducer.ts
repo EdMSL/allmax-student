@@ -2,8 +2,10 @@ import { createReducer } from 'reduxsauce';
 import Types from '~/redux/actionTypes';
 
 export interface IGithubState {
-  // projectText
-  [x: string]: any,
+  projectText: string;
+  isLoading: boolean;
+  isHaveResaults: boolean;
+  items: any[];
 }
 
 export const INITIAL_STATE: IGithubState = {

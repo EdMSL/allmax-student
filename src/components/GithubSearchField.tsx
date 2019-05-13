@@ -1,7 +1,9 @@
 import * as React from 'react';
 
+import { IGithubState } from '~/modules/github/reducer';
+
 interface Props {
-  projectText: string,
+  projectText: IGithubState['projectText'],
   onChange: (event: any) => void;
 };
 

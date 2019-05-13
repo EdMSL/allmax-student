@@ -3,16 +3,12 @@ import {
   memo,
 } from 'react';
 
+import { ITodoState } from '~/modules/todo/reducer';
+
 import { TodoTaskItem } from '~/components/TodoTaskItem';
 
-interface Task {
-  id: string;
-  description: string;
-  completed: boolean;
-}
-
 interface Props {
-  tasks: Task[];
+  tasks: ITodoState['tasks'];
   onTaskCheckboxlChange: (event: any) => void;
   onDeleteTaskButtonClick: (event: any) => void;
 };

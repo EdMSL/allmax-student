@@ -1,9 +1,16 @@
 import { createReducer } from 'reduxsauce';
 import Types from '~/redux/actionTypes';
 
+export interface Task {
+  id: string;
+  description: string;
+  completed: boolean;
+}
+
 export interface ITodoState {
-  // projectText
-  [x: string]: any,
+  tasks: Task[];
+  taskText: string;
+  counter: number;
 }
 
 export const INITIAL_STATE: ITodoState = {
