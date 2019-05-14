@@ -46,12 +46,14 @@ class UnconnectedTodoContainer extends PureComponent<Props> {
   render() {
     const { tasks } = this.props;
 
-    console.log('render TodoContainer');
-
     return (
       <div>
         <TodoTaskForm onSubmit={this.onSubmit} />
-        <TodoTasksList tasks={tasks} onTaskCheckboxlChange={this.onTaskCheckboxlChange} onDeleteTaskButtonClick={this.onDeleteTaskButtonClick} />
+        <TodoTasksList
+          tasks={tasks}
+          onTaskCheckboxlChange={this.onTaskCheckboxlChange}
+          onDeleteTaskButtonClick={this.onDeleteTaskButtonClick}
+        />
       </div>
     );
   }

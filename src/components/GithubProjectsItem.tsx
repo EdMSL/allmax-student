@@ -11,8 +11,6 @@ interface Props {
 };
 
 export const GithubProjectsItem: React.FunctionComponent<Props> = ({ id, name, html_url, stargazers_count, watchers_count }) => {
-  console.log('render GithubItem');
-
   return (
     <li
       id={id}

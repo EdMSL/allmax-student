@@ -13,7 +13,6 @@ const { store, persistor } = createStore();
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-    <div />
       <TodoContainer />
       <GithubContainer />
     </PersistGate>

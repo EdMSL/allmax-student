@@ -14,7 +14,6 @@ interface Props {
 };
 
 export const TodoTasksList: React.FunctionComponent<Props> = memo(({ tasks, onTaskCheckboxlChange, onDeleteTaskButtonClick }) => {
-  console.log('render List');
   const items = tasks.map((task) => {
     return (
       <TodoTaskItem

@@ -18,8 +18,6 @@ export const GithubSearchForm: React.FunctionComponent<Props> = memo(({
   onProjectFieldChange,
   onSubmit,
 }) => {
-  console.log('render GitForm');
-
   return (
     <form
       onSubmit={onSubmit}

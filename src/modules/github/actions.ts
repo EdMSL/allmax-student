@@ -6,20 +6,20 @@ export const changeProjectText = (name: string, projectText: string) => ({
   projectText,
 });
 
-export const findProjectRequest = () => ({
+export const getProjects = () => ({
   type: Types.FIND_PROJECT_REQUEST,
 });
 
-export const findProjectOk = (items) => ({
+export const setProjects = (items) => ({
   type: Types.FIND_PROJECT_OK,
   items,
 });
 
-export const findProjectFail = () => ({
+export const getProjectsError = () => ({
   type: Types.FIND_PROJECT_FAIL,
 });
 
-export const findProjectFetch = (projectText) => ({
+export const findProjects = (projectText) => ({
   type: Types.FIND_PROJECT_FETCH,
   projectText,
 });

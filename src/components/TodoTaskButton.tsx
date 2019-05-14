@@ -4,7 +4,6 @@ import {
 } from 'react';
 
 export const TodoTaskButton: React.FunctionComponent = memo(() => {
-  console.log('render Button');
   return (
     <button
       type="submit"

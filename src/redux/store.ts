@@ -9,7 +9,7 @@ import storage from 'redux-persist/lib/storage';
 import {
   reducers,
 } from '~/redux/reducers';
-import { watchFindProjectFetch } from '~/modules/github/sagas';
+import { githubProjectsSaga } from '~/modules/github/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,7 +26,7 @@ const store = createStore(
 );
 const persistor = persistStore(store);
 
-sagaMiddleware.run(watchFindProjectFetch);
+sagaMiddleware.run(githubProjectsSaga);
 
 const create = () => (
   {

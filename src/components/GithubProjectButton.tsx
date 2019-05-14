@@ -4,12 +4,8 @@ import {
 } from 'react';
 
 export const GithubProjectButton: React.FunctionComponent = memo(() => {
-  console.log('render GitButton');
-
   return (
-    <button
-      type="submit"
-    >
+    <button type="submit">
       Найти
     </button>
   );

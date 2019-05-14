@@ -56,13 +56,14 @@ class UnconnectedTodoTaskForm extends React.Component<Props> {
   render() {
     const { taskText, onSubmit } = this.props;
 
-    console.log('render Form');
-
     return (
       <form
         onSubmit={onSubmit}
       >
-        <TodoTaskField taskText={taskText} onTaskFieldChange={this.onTaskFieldChange} />
+        <TodoTaskField
+          taskText={taskText}
+          onTaskFieldChange={this.onTaskFieldChange}
+        />
         <TodoTaskButton />
       </form>
     );

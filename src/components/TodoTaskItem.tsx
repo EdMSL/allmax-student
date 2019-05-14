@@ -11,7 +11,7 @@ interface Props {
 };
 
 export const TodoTaskItem: React.FunctionComponent<Props> = ({ id, description, completed, onChange, onClick }) => {
-  console.log('render Item');
+  
   return (
     <li>
       <input

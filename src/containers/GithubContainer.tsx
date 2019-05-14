@@ -15,7 +15,7 @@ interface Props {
   isError: IGithubState['isError'];
   items: IGithubState['items'];
   changeProjectText: typeof ACTIONS.changeProjectText;
-  findProjectFetch: typeof ACTIONS.findProjectFetch;
+  findProjects: typeof ACTIONS.findProjects;
 }
 
 class UnconnectedGithubContainer extends React.PureComponent<Props> {
@@ -27,7 +27,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   };
 
   onProjectFormSubmit = (event) => {
-    const { projectText, findProjectFetch } = this.props;
+    const { projectText, findProjects } = this.props;
 
     event.preventDefault();
 
@@ -35,13 +35,12 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
       return;
     }
 
-    findProjectFetch(projectText);
+    findProjects(projectText);
   };
 
   render() {
     const { projectText, isLoading, isHaveResaults, isError, items } = this.props;
 
-    console.log('render GithubContainer');
     return (
       <div>
         <p>Поиск проектов на GitHub</p>
@@ -65,7 +64,7 @@ const mapStateToProps = ({ github: { projectText, isLoading, isHaveResaults, isE
 
 const mapDispatchToProps = {
   changeProjectText: ACTIONS.changeProjectText,
-  findProjectFetch: ACTIONS.findProjectFetch,
+  findProjects: ACTIONS.findProjects,
 };
 
 export const GithubContainer = connect(mapStateToProps, mapDispatchToProps)(UnconnectedGithubContainer);

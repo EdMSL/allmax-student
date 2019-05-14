@@ -12,8 +12,6 @@ interface Props {
 };
 
 export const GithubProjectsList: React.FunctionComponent<Props> = memo(({ items }) => {
-  console.log('render GithubList');
-
   const projects = items.map((item) => {
     return (
       <GithubProjectsItem
