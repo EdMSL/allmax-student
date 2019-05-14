@@ -3,14 +3,14 @@ import {
   memo,
 } from 'react';
 
-import { ITodoState } from '~/modules/todo/reducer';
+import { ITodoState, ITask } from '~/modules/todo/reducer';
 
 import { TodoTaskItem } from '~/components/todo/TodoTaskItem';
 
 interface Props {
   tasks: ITodoState['tasks'];
-  onTaskCheckboxlChange: (event: any) => void;
-  onDeleteTaskButtonClick: (event: any) => void;
+  onTaskCheckboxlChange: (id: ITask['id'])=> void;
+  onDeleteTaskButtonClick: (id: ITask['id'])=> void;
 };
 
 export const TodoTasksList: React.FunctionComponent<Props> = memo(({ tasks, onTaskCheckboxlChange, onDeleteTaskButtonClick }) => {

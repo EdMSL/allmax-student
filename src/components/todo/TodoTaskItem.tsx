@@ -16,7 +16,7 @@ export const TodoTaskItem: React.FunctionComponent<Props> = ({ id, description, 
     <li>
       <input
         type="checkbox"
-        name={`task_${id}`}
+        name={id}
         id={id}
         checked={completed}
         onChange={() => onChange(id)}

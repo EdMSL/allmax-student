@@ -18,13 +18,11 @@ export const GithubSearchForm: React.FunctionComponent<Props> = memo(({
   onSubmit,
 }) => {
   return (
-    <form
-      onSubmit={onSubmit}
-    >
+    <form onSubmit={onSubmit}>
       <GithubSearchField projectText={projectText} onChange={onProjectFieldChange} />
-    <button type="submit">
-      Найти
-    </button>
+      <button type="submit">
+        Найти
+      </button>
     </form>
   );
 });

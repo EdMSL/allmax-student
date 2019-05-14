@@ -10,7 +10,7 @@ export const getProjects = () => ({
   type: Types.FIND_PROJECT_REQUEST,
 });
 
-export const setProjects = (items) => ({
+export const setProjects = (items: any[]) => ({
   type: Types.FIND_PROJECT_OK,
   items,
 });
@@ -19,7 +19,7 @@ export const getProjectsError = () => ({
   type: Types.FIND_PROJECT_FAIL,
 });
 
-export const findProjects = (projectText) => ({
+export const findProjects = (projectText: string) => ({
   type: Types.FIND_PROJECT_FETCH,
   projectText,
 });
