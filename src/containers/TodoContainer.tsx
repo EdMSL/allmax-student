@@ -4,8 +4,8 @@ import {
 } from 'react';
 import { connect } from 'react-redux';
 
-import { TodoTaskForm } from '~/components/TodoTaskForm';
-import { TodoTasksList } from '~/components/TodoTasksList';
+import { TodoTaskForm } from '~/components/todo/TodoTaskForm';
+import { TodoTasksList } from '~/components/todo/TodoTasksList';
 
 import ACTIONS from '~/redux/actions';
 import { ITodoState } from '~/modules/todo/reducer';
@@ -19,7 +19,7 @@ interface Props {
 }
 
 class UnconnectedTodoContainer extends PureComponent<Props> {
-  onSubmit = (event) => {
+  onSubmit: React.FormEventHandler<HTMLButtonElement> = (event) => {
     const { taskText, addTask } = this.props;
 
     event.preventDefault();

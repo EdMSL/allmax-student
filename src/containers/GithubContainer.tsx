@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { connect } from 'react-redux';
 
-import { GithubSearchForm } from '~/components/GithubSearchForm';
-import { GithubProjectView } from '~/components/GithubProjectView';
+import { GithubSearchForm } from '~/components/github/search/GithubSearchForm';
+import { GithubProjectView } from '~/components/github/projects/GithubProjectsView';
 
 import ACTIONS from '~/redux/actions';
 import { IGithubState } from '~/modules/github/reducer';
@@ -11,7 +11,7 @@ import { IGithubState } from '~/modules/github/reducer';
 interface Props {
   projectText: IGithubState['projectText'];
   isLoading: IGithubState['isLoading'];
-  isHaveResaults: IGithubState['isHaveResaults'];
+  isHaveResults: IGithubState['isHaveResults'];
   isError: IGithubState['isError'];
   items: IGithubState['items'];
   changeProjectText: typeof ACTIONS.changeProjectText;
@@ -39,7 +39,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   };
 
   render() {
-    const { projectText, isLoading, isHaveResaults, isError, items } = this.props;
+    const { projectText, isLoading, isHaveResults, isError, items } = this.props;
 
     return (
       <div>
@@ -51,7 +51,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
         />
         <GithubProjectView
           isLoading={isLoading}
-          isHaveResaults={isHaveResaults}
+          isHaveResults={isHaveResults}
           isError={isError}
           items={items}
         />
@@ -60,7 +60,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   }
 }
 
-const mapStateToProps = ({ github: { projectText, isLoading, isHaveResaults, isError, items } }) => ({ projectText, isLoading, isHaveResaults, isError, items});
+const mapStateToProps = ({ github: { projectText, isLoading, isHaveResults, isError, items } }) => ({ projectText, isLoading, isHaveResults, isError, items});
 
 const mapDispatchToProps = {
   changeProjectText: ACTIONS.changeProjectText,

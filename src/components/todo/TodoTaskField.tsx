@@ -4,7 +4,7 @@ import { ITodoState } from '~/modules/todo/reducer';
 
 interface Props {
   taskText: ITodoState['taskText'];
-  onTaskFieldChange: (event: object) => void;
+  onTaskFieldChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 export const TodoTaskField: React.FunctionComponent<Props> = ({ taskText, onTaskFieldChange }) => (

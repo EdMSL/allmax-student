@@ -5,7 +5,7 @@ import {
 
 import { ITodoState } from '~/modules/todo/reducer';
 
-import { TodoTaskItem } from '~/components/TodoTaskItem';
+import { TodoTaskItem } from '~/components/todo/TodoTaskItem';
 
 interface Props {
   tasks: ITodoState['tasks'];

@@ -3,7 +3,7 @@ import {
   memo,
 } from 'react';
 
-import { GithubProjectsItem } from '~/components/GithubProjectsItem';
+import { GithubProjectsItem } from '~/components/github/projects/GithubProjectsItem';
 
 import { IGithubState } from '~/modules/github/reducer';
 

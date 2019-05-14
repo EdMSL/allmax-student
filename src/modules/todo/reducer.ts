@@ -1,16 +1,22 @@
 import { createReducer } from 'reduxsauce';
+
+import * as ACTIONS from '~/modules/todo/actions';
 import Types from '~/redux/actionTypes';
 
-export interface Task {
+export interface ITask {
   id: string;
   description: string;
   completed: boolean;
 }
 
 export interface ITodoState {
-  tasks: Task[];
+  tasks: ITask[];
   taskText: string;
   counter: number;
+}
+
+export interface ActionHandler<T, state> {
+  (state: state, payload: T extends (...args: any[]) => infer R ? R : any): state;
 }
 
 export const INITIAL_STATE: ITodoState = {
@@ -19,21 +25,21 @@ export const INITIAL_STATE: ITodoState = {
   counter: 0,
 };
 
-export const changeCounter = (state = INITIAL_STATE, action) => {
+export const changeCounter = (state = INITIAL_STATE) => {
   return {
     ...state,
     counter: state.counter + 1,
   };
 };
 
-export const changeTaskText = (state = INITIAL_STATE, action) => {
+export const changeTaskText: ActionHandler<typeof ACTIONS.changeTaskText, ITodoState> = (state = INITIAL_STATE, { name, taskText}) => {
   return {
     ...state,
-    [action.name]: action.taskText,
+    [name]: taskText,
   };
 };
 
-export const addTask = (state = INITIAL_STATE, action) => {
+export const addTask = (state = INITIAL_STATE) => {
   return {
     ...state,
     tasks: state.tasks.concat([{

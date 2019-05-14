@@ -4,7 +4,7 @@ import { IGithubState } from '~/modules/github/reducer';
 
 interface Props {
   projectText: IGithubState['projectText'],
-  onChange: (event: any) => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 export const GithubSearchField: React.FunctionComponent<Props> = ({ projectText, onChange }) => (

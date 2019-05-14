@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest, delay } from 'redux-saga/effects';
+import { call, put, takeLatest, delay } from 'redux-saga/effects';
 
 import * as githubActions from '~/modules/github/actions';
 import * as Api from '~/modules/github/api';
@@ -9,7 +9,7 @@ function* fetchFindProjectAsync(action) {
   try {
     yield delay(API_GITHUB_DELAY_TIME);
     yield put(githubActions.getProjects());
-    const data = yield call(Api.getProjectsData,action.projectText);
+    const data = yield call(Api.getProjectsData, action.projectText);
     yield put(githubActions.setProjects(data.items));
   } catch (error) {
     yield put(githubActions.getProjectsError());

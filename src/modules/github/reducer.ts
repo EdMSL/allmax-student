@@ -1,7 +1,8 @@
 import { createReducer } from 'reduxsauce';
 import Types from '~/redux/actionTypes';
+import * as ACTIONS from '~/modules/github/actions';
 
-export interface Project {
+export interface IProject {
   id: string;
   name: string;
   html_url: string;
@@ -12,15 +13,19 @@ export interface Project {
 export interface IGithubState {
   projectText: string;
   isLoading: boolean;
-  isHaveResaults: boolean;
+  isHaveResults: boolean;
   isError: boolean;
-  items: Project[];
+  items: IProject[];
 };
+
+export interface ActionHandler<T> {
+  (state: IGithubState, payload: T extends (...args: any[]) => infer R ? R : any): IGithubState;
+}
 
 export const INITIAL_STATE: IGithubState = {
   projectText: '',
   isLoading: false,
-  isHaveResaults: false,
+  isHaveResults: false,
   isError: false,
   items: [],
 };
@@ -32,28 +37,28 @@ export const changeProjectText = (state = INITIAL_STATE, action) => {
   };
 };
 
-export const findProjectRequest = (state = INITIAL_STATE, action) => {
+export const getProjects = (state = INITIAL_STATE) => {
   return {
     ...state,
-    isHaveResaults: true,
+    isHaveResults: true,
     isLoading: true,
   };
 };
 
-export const findProjectOk = (state = INITIAL_STATE, action) => {
+export const setProjects: ActionHandler<typeof ACTIONS.setProjects> = (state = INITIAL_STATE, { items }) => {
   return {
     ...state,
-    isHaveResaults: true,
+    isHaveResults: true,
     isLoading: false,
     isError: false,
-    items: action.items,
+    items: items,
     projectText: '',
   };
 };
-export const findProjectFail = (state = INITIAL_STATE, action) => {
+export const getProjectsError = (state = INITIAL_STATE) => {
   return {
     ...state,
-    isHaveResaults: true,
+    isHaveResults: true,
     isLoading: false,
     isError: true,
   };
@@ -61,9 +66,9 @@ export const findProjectFail = (state = INITIAL_STATE, action) => {
 
 export const HANDLERS = {
   [Types.CHANGE_PROJECT_TEXT]: changeProjectText,
-  [Types.FIND_PROJECT_REQUEST]: findProjectRequest,
-  [Types.FIND_PROJECT_OK]: findProjectOk,
-  [Types.FIND_PROJECT_FAIL]: findProjectFail,
+  [Types.FIND_PROJECT_REQUEST]: getProjects,
+  [Types.FIND_PROJECT_OK]: setProjects,
+  [Types.FIND_PROJECT_FAIL]: getProjectsError,
 };
 
 export default createReducer(INITIAL_STATE, HANDLERS);

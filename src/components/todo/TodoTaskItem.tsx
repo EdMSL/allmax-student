@@ -1,17 +1,17 @@
 import * as React from 'react';
 
-import { Task } from '~/modules/todo/reducer';
+import { ITask } from '~/modules/todo/reducer';
 
 interface Props {
-  id: Task['id'];
-  description: Task['description'];
-  completed: Task['completed'];
-  onChange: (id: Task['id'])=> void;
-  onClick: (id: Task['id'])=> void;
+  id: ITask['id'];
+  description: ITask['description'];
+  completed: ITask['completed'];
+  onChange: (id: ITask['id'])=> void;
+  onClick: (id: ITask['id'])=> void;
 };
 
 export const TodoTaskItem: React.FunctionComponent<Props> = ({ id, description, completed, onChange, onClick }) => {
-  
+
   return (
     <li>
       <input
