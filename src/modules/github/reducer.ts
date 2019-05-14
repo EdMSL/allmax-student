@@ -1,6 +1,7 @@
 import { createReducer } from 'reduxsauce';
 import Types from '~/redux/actionTypes';
 import * as ACTIONS from '~/modules/github/actions';
+import { AnyAction } from 'redux';
 
 export interface IProject {
   id: string;
@@ -30,14 +31,21 @@ export const INITIAL_STATE: IGithubState = {
   items: [],
 };
 
-export const changeProjectText = (state = INITIAL_STATE, action) => {
+// export const changeProjectText = (state = INITIAL_STATE, action) => {
+//   return {
+//     ...state,
+//     [action.name]: action.projectText,
+//   };
+// };
+// Тут опять не работает. Та же ошибка.
+export const changeProjectText: ActionHandler<typeof ACTIONS.changeProjectText> = (state = INITIAL_STATE, { name, projectText }) => {
   return {
     ...state,
-    [action.name]: action.projectText,
+    [name]: projectText,
   };
 };
 
-export const getProjects = (state = INITIAL_STATE) => {
+export const getProjects: ActionHandler<typeof ACTIONS.getProjects> = (state = INITIAL_STATE) => {
   return {
     ...state,
     isHaveResults: true,
@@ -55,7 +63,7 @@ export const setProjects: ActionHandler<typeof ACTIONS.setProjects> = (state = I
     projectText: '',
   };
 };
-export const getProjectsError = (state = INITIAL_STATE) => {
+export const getProjectsError: ActionHandler<typeof ACTIONS.getProjectsError> = (state = INITIAL_STATE) => {
   return {
     ...state,
     isHaveResults: true,
@@ -66,9 +74,14 @@ export const getProjectsError = (state = INITIAL_STATE) => {
 
 export const HANDLERS = {
   [Types.CHANGE_PROJECT_TEXT]: changeProjectText,
-  [Types.FIND_PROJECT_REQUEST]: getProjects,
-  [Types.FIND_PROJECT_OK]: setProjects,
-  [Types.FIND_PROJECT_FAIL]: getProjectsError,
+  [Types.GET_PROJECTS]: getProjects,
+  [Types.SET_PROJECTS]: setProjects,
+  [Types.GET_PROJECTS_ERROR]: getProjectsError,
 };
 
-export default createReducer(INITIAL_STATE, HANDLERS);
+export default createReducer<IGithubState, AnyAction>(INITIAL_STATE, HANDLERS);
+
+interface A {
+  name: string,
+  surname: string,
+}

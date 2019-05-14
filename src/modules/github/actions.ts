@@ -7,19 +7,20 @@ export const changeProjectText = (name: string, projectText: string) => ({
 });
 
 export const getProjects = () => ({
-  type: Types.FIND_PROJECT_REQUEST,
+  type: Types.GET_PROJECTS,
 });
 
 export const setProjects = (items: any[]) => ({
-  type: Types.FIND_PROJECT_OK,
+  type: Types.SET_PROJECTS,
   items,
 });
 
 export const getProjectsError = () => ({
-  type: Types.FIND_PROJECT_FAIL,
+  type: Types.GET_PROJECTS_ERROR,
 });
 
 export const findProjects = (projectText: string) => ({
-  type: Types.FIND_PROJECT_FETCH,
+  type: Types.FIND_PROJECTS,
   projectText,
 });
+

@@ -15,8 +15,8 @@ export interface ITodoState {
   counter: number;
 }
 
-export interface ActionHandler<T, state> {
-  (state: state, payload: T extends (...args: any[]) => infer R ? R : any): state;
+export interface ActionHandler<T> {
+  (state: ITodoState, payload: T extends (...args: any[]) => infer R ? R : any): ITodoState;
 }
 
 export const INITIAL_STATE: ITodoState = {
@@ -25,45 +25,48 @@ export const INITIAL_STATE: ITodoState = {
   counter: 0,
 };
 
-export const changeCounter = (state = INITIAL_STATE) => {
+export const changeCounter: ActionHandler<typeof ACTIONS.changeCounter> = (state = INITIAL_STATE) => {
   return {
     ...state,
     counter: state.counter + 1,
   };
 };
 
-export const changeTaskText: ActionHandler<typeof ACTIONS.changeTaskText, ITodoState> = (state = INITIAL_STATE, { name, taskText}) => {
+export const changeTaskText: ActionHandler<typeof ACTIONS.changeTaskText> = (state = INITIAL_STATE, { name, taskText}) => {
   return {
     ...state,
     [name]: taskText,
   };
 };
 
-export const addTask = (state = INITIAL_STATE) => {
+export const addTask: ActionHandler<typeof ACTIONS.addTask> = (state = INITIAL_STATE) => {
   return {
     ...state,
-    tasks: state.tasks.concat([{
-      id: `task_${state.counter}`,
-      description: state.taskText,
-      completed: false,
-    }]),
+    tasks: [
+      ...state.tasks,
+      {
+        id: `task_${state.counter}`,
+        description: state.taskText,
+        completed: false,
+      }
+    ],
     counter: state.counter + 1,
     taskText: '',
   };
 };
 
-export const completeTask = (state = INITIAL_STATE, action) => {
+export const completeTask: ActionHandler<typeof ACTIONS.completeTask> = (state = INITIAL_STATE, { id }) => {
   return {
     ...state,
     tasks: state.tasks.map(task => (
-      (task.id === action.id)
+      (task.id === id)
         ? { ...task, completed: !task.completed }
         : task
     ))
   };
 };
 
-export const deleteTask = (state = INITIAL_STATE, action) => {
+export const deleteTask: ActionHandler<typeof ACTIONS.deleteTask> = (state = INITIAL_STATE, action) => {
   return {
     ...state,
     tasks: state.tasks.filter(task => task.id !== action.id),
