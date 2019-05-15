@@ -1,29 +1,61 @@
 import {
   createStore,
   applyMiddleware,
+  compose,
 } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga'
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import {
-  reducers,
+  createRootReducer,
 } from '~/redux/reducers';
 import { githubProjectsSaga } from '~/modules/github/sagas';
+
+export const history = createBrowserHistory();
 
 const sagaMiddleware = createSagaMiddleware();
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['todo', 'github'],
+  blacklist: ['github'],
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, createRootReducer(history));
+
+// const store = createStore(
+//   persistedReducer,
+//   applyMiddleware(sagaMiddleware)
+// );
+
 const store = createStore(
   persistedReducer,
-  applyMiddleware(sagaMiddleware)
-);
+  compose(
+    applyMiddleware(
+      routerMiddleware(history),
+      sagaMiddleware,
+    ),
+  ),
+)
+
+// export function configureStore(preloadedState) {
+//   const store = createStore(
+//     preloadedState,
+//     persistedReducer,
+//     compose(
+//       applyMiddleware(sagaMiddleware),
+//       applyMiddleware(
+//         routerMiddleware(history),
+//       ),
+//     ),
+//   )
+
+//   return store;
+// }
+
 const persistor = persistStore(store);
 
 sagaMiddleware.run(githubProjectsSaga);
@@ -35,4 +67,4 @@ const create = () => (
   }
 );
 
-export default create;
+export const createConfiguredStore = create;
