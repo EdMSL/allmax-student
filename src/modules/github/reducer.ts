@@ -31,13 +31,6 @@ export const INITIAL_STATE: IGithubState = {
   items: [],
 };
 
-// export const changeProjectText = (state = INITIAL_STATE, action) => {
-//   return {
-//     ...state,
-//     [action.name]: action.projectText,
-//   };
-// };
-// Тут опять не работает. Та же ошибка.
 export const changeProjectText: ActionHandler<typeof ACTIONS.changeProjectText> = (state = INITIAL_STATE, { name, projectText }) => {
   return {
     ...state,
@@ -80,8 +73,3 @@ export const HANDLERS = {
 };
 
 export default createReducer<IGithubState, AnyAction>(INITIAL_STATE, HANDLERS);
-
-interface A {
-  name: string,
-  surname: string,
-}

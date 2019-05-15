@@ -113,6 +113,7 @@ const configuration = {
     contentBase: PATHS.dist,
     port: 8081,
     compress: true,
+    historyApiFallback: true,
     overlay: {
       warnings: true,
       errors: true,
