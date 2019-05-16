@@ -51,12 +51,16 @@ const configuration = {
           {
             loader: 'css-loader',
             options: {
+              modules: true,
               sourceMap: true,
+              importLoaders: 2,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
               url: false,
             },
           }, {
             loader: 'postcss-loader',
             options: {
+              modules: true,
               sourceMap: true,
               plugins: [
                 autoprefixer(),
@@ -75,6 +79,11 @@ const configuration = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+            },
+          }, {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['src/styles/variables.scss'],
             },
           },
         ],

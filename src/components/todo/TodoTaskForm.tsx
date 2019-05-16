@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { connect } from 'react-redux';
 
-import { TodoTaskField } from '~/components/todo/TodoTaskField';
+import { TodoTaskField } from '~/components/todo/taskField/TodoTaskField';
 
 import ACTIONS from '~/redux/actions';
 import { ITodoState } from '~/modules/todo/reducer';
