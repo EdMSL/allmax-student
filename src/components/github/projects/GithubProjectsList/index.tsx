@@ -24,7 +24,7 @@ export const GithubProjectsList: React.FunctionComponent<Props> = memo(({ items 
       />
     );
   });
-  
+
   return (
     <ul>
       {projects}

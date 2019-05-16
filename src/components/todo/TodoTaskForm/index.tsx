@@ -2,10 +2,14 @@ import * as React from 'react';
 
 import { connect } from 'react-redux';
 
-import { TodoTaskField } from '~/components/todo/taskField/TodoTaskField';
+import classNames from 'classnames';
+
+import { TodoTaskField } from '~/components/todo/TodoTaskField';
 
 import ACTIONS from '~/redux/actions';
 import { ITodoState } from '~/modules/todo/reducer';
+
+const common = require('../../../styles/common.scss');
 
 interface Props {
   taskText: ITodoState['taskText'];
@@ -26,13 +30,16 @@ class UnconnectedTodoTaskForm extends React.Component<Props> {
 
     return (
       <form
+        className={common.form}
         onSubmit={onSubmit}
       >
         <TodoTaskField
           taskText={taskText}
           onTaskFieldChange={this.onTaskFieldChange}
         />
-        <button type="submit">
+        <button
+          type="submit"
+          className={common.button}>
           Создать задачу
         </button>
       </form>

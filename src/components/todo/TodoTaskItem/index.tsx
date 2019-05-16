@@ -2,6 +2,9 @@ import * as React from 'react';
 
 import { ITask } from '~/modules/todo/reducer';
 
+const style = require('./style.scss');
+const common = require('../../../styles/common.scss');
+
 interface Props {
   id: ITask['id'];
   description: ITask['description'];
@@ -13,22 +16,28 @@ interface Props {
 export const TodoTaskItem: React.FunctionComponent<Props> = ({ id, description, completed, onChange, onClick }) => {
 
   return (
-    <li>
+    <li className={style.item}>
       <input
+        className={style.checkbox}
         type="checkbox"
         name={id}
         id={id}
         checked={completed}
         onChange={() => onChange(id)}
       />
-      <label htmlFor={id}>
+      <label
+        className={style.label}
+        htmlFor={id}>
         {description}
       </label>
       <button
+        className={style.delButton}
         type="button"
         onClick={() => onClick(id)}
       >
-        Удалить
+        <span className={common.visuallyHidden}>
+          Удалить
+        </span>
       </button>
     </li>
   );

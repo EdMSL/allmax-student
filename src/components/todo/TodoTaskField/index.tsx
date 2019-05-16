@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { ITodoState } from '~/modules/todo/reducer';
-const style = require('./style.scss');
+
+const common = require('../../../styles/common.scss');
 
 interface Props {
   taskText: ITodoState['taskText'];
@@ -10,7 +11,7 @@ interface Props {
 
 export const TodoTaskField: React.FunctionComponent<Props> = ({ taskText, onTaskFieldChange }) => (
   <input
-    className={style.field}
+    className={common.field}
     type="text"
     name="taskText"
     placeholder="Текст задачи"

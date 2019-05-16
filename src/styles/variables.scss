@@ -1,2 +1,13 @@
 $main-bg-color: #fefe12;
 $main-text-color: #323232;
+$content-block-color: #ffffff;
+$main-button-text-color: #fcfcfc;
+$main-link-text-color: #f539a0;
+$hovered-main-link-text-color: transparentize($main-link-text-color, 0.2);
+$active-main-link-text-color: transparentize($main-link-text-color, 0.5);
+$main-button-bg-color: #858383;
+$hovered-main-button-bg-color: darken($main-button-bg-color, 25);
+$active-main-button-bg-color: darken($main-button-bg-color, 50);
+$base-color: #318be6;
+$hovered-base-color: darken($base-color, 10);
+$active-base-color: adjust-hue($base-color, 250);

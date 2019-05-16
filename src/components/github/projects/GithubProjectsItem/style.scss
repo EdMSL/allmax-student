@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  margin-top: 10px;
+}
+
+.itemLink {
+  display: block;
+  margin-right: 20px;
+
+  color: $main-link-text-color;
+
+  &:hover,
+  &:focus {
+    color: $hovered-main-link-text-color;
+  }
+
+  &:active {
+    color: $active-main-link-text-color;
+  }
+}
+
+.itemText {
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+}

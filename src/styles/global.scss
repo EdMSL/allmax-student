@@ -13,13 +13,7 @@ body {
 }
 
 a {
-  display: inline-block;
-  padding: 10px;
-  margin-right: 10px;
-
   text-decoration: none;
-  color: #ffffff;
-  background-color: rgb(176, 174, 182);
 }
 
 img {
@@ -28,27 +22,9 @@ img {
   height: auto;
 }
 
-.visually-hidden {
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
+ul {
+  margin: 0;
   padding: 0;
-
-  white-space: nowrap;
-
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.mainWrap {
-  height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-
-  background-color: rgb(255, 255, 255);
+  
+  list-style: none;
 }

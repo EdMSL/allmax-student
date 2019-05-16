@@ -1,0 +1,97 @@
+.item {
+  display: flex;
+
+  margin-top: 15px;
+}
+
+.checkbox {
+  composes: visuallyHidden from "../../../styles/common.scss";
+}
+
+.label {
+  position: relative;
+
+  margin-right: 10px;
+  margin-left: 30px;
+
+  &::before,
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    display: block;
+  }
+
+  &::before {
+    top: 0;
+    left: -30px;
+
+    width: 20px;
+    height: 20px;
+
+    border: 3px solid $base-color;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    border-color: $hovered-base-color;
+  }
+
+  input[type="checkbox"]:checked + &::before {
+    border-color: $active-base-color;
+  }
+
+  input[type="checkbox"]:checked + &::after {
+    top: 8px;
+    left: -22px;
+
+    width: 10px;
+    height: 10px;
+
+    background-color: $active-base-color;
+  }
+}
+
+.delButton {
+  position: relative;
+
+  width: 26px;
+  height: 26px;
+
+  border: none;
+
+  &::before,
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 10px;
+    left: -2px;
+
+    display: block;
+    width: 30px;
+    height: 3px;
+
+    background-color: $base-color;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    background-color: $hovered-base-color;
+  }
+
+  &:active::before,
+  &:active::after {
+    background-color: $active-base-color;
+    outline: none;
+  }
+}
