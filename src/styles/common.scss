@@ -1,6 +1,6 @@
 @import './variables.scss';
 
-.visuallyHidden {
+:global(.visuallyHidden) {
   position: absolute;
 
   width: 1px;
@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-.mainWrap {
+:global(.mainWrap) {
   min-height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
@@ -25,12 +25,12 @@
   background-color: $content-block-color;
 }
 
-.form {
+:global(.form) {
   display: flex;
   flex-direction: column;
 }
 
-.field {
+:global(.field) {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
@@ -50,7 +50,7 @@
   }
 }
 
-.button {
+:global(.button) {
   display: inline-block;
   padding: 10px;
   box-sizing: border-box;

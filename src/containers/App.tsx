@@ -10,17 +10,15 @@ import { createConfiguredStore } from '~/redux/store';
 import { TodoContainer } from '~/containers/TodoContainer';
 import { GithubContainer } from '~/containers/GithubContainer';
 
-const style = require('../styles/common.scss');
-
 const { store, persistor, history } = createConfiguredStore();
 
 const App = () => (
   <Provider store={store} context={ReactReduxContext} >
     <ConnectedRouter history={history} context={ReactReduxContext} >
       <PersistGate loading={null} persistor={persistor}>
-        <div className={style.mainWrap}>
-          <Link className={style.button} to="/todo">Список дел</Link>
-          <Link className={style.button} to="/github">Поиск проектов на GitHub</Link>
+        <div className="mainWrap">
+          <Link className="button" to="/todo">Список дел</Link>
+          <Link className="button" to="/github">Поиск проектов на GitHub</Link>
 
           <Switch>
             <Route exact path="/todo" component={TodoContainer} />

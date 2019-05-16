@@ -83,7 +83,7 @@ const configuration = {
           }, {
             loader: 'sass-resources-loader',
             options: {
-              resources: ['src/styles/variables.scss'],
+              resources: ['src/styles/common.scss'],
             },
           },
         ],

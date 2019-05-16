@@ -4,10 +4,6 @@
   margin-top: 15px;
 }
 
-.checkbox {
-  composes: visuallyHidden from "../../../styles/common.scss";
-}
-
 .label {
   position: relative;
 
@@ -60,6 +56,7 @@
   height: 26px;
 
   border: none;
+  outline: none;
 
   &::before,
   &::after {
@@ -92,6 +89,5 @@
   &:active::before,
   &:active::after {
     background-color: $active-base-color;
-    outline: none;
   }
 }

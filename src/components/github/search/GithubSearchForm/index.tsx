@@ -4,8 +4,6 @@ import {
 } from 'react';
 import { GithubSearchField } from '~/components/github/search/GithubSearchField';
 
-const common = require('../../../../styles/common.scss');
-
 import { IGithubState } from '~/modules/github/reducer';
 
 
@@ -22,11 +20,12 @@ export const GithubSearchForm: React.FunctionComponent<Props> = memo(({
 }) => {
   return (
     <form
-      className={common.form}
-      onSubmit={onSubmit}>
+      className="form"
+      onSubmit={onSubmit}
+    >
       <GithubSearchField projectText={projectText} onChange={onProjectFieldChange} />
       <button
-        className={common.button}
+        className="button"
         type="submit">
         Найти
       </button>
