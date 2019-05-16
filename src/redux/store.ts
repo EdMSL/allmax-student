@@ -21,7 +21,7 @@ const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['todolist'],
+  blacklist: ['github'],
 };
 
 const persistedReducer = persistReducer(persistConfig, createRootReducer(history));
