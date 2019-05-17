@@ -12,6 +12,7 @@ function* findProjects({ projectText }: ReturnType<typeof githubActions.findProj
     yield put(githubActions.getProjects());
 
     const data = yield call(API.getProjectsData, projectText);
+    console.log('object');
 
     yield put(githubActions.setProjects(data.items));
   } catch (error) {

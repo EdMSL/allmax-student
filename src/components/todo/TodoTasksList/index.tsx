@@ -9,11 +9,15 @@ import { TodoTaskItem } from '~/components/todo/TodoTaskItem';
 
 interface Props {
   tasks: ITodoState['tasks'];
-  onTaskCheckboxlChange: (id: ITask['id'])=> void;
-  onDeleteTaskButtonClick: (id: ITask['id'])=> void;
-};
+  onTaskCheckboxlChange: (id: ITask['id']) => void;
+  onDeleteTaskButtonClick: (id: ITask['id']) => void;
+}
 
-export const TodoTasksList: React.FunctionComponent<Props> = memo(({ tasks, onTaskCheckboxlChange, onDeleteTaskButtonClick }) => {
+export const TodoTasksList: React.FunctionComponent<Props> = memo(({
+  tasks,
+  onTaskCheckboxlChange,
+  onDeleteTaskButtonClick,
+}) => {
   const items = tasks.map((task) => {
     return (
       <TodoTaskItem

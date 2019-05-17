@@ -1,0 +1,28 @@
+{
+  "extends": ["tslint:latest"],
+  "rules": {
+    "no-submodule-imports": false,
+    "max-line-length": {
+      "options": [120]
+  },
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": false,
+    "no-console": {
+        "severity": "warning",
+        "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+    },
+    "ordered-imports": false,
+    "quotemark": false,
+    "interface-name": false,
+    "no-implicit-dependencies": false,
+    "object-literal-sort-keys": false,
+    "no-var-requires": false,
+    "no-empty-interface": false
+  },
+  "jsRules": {
+
+  }
+}

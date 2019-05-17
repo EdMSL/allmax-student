@@ -14,7 +14,12 @@ interface Props {
   items: IGithubState['items'];
 };
 
-export const GithubProjectView: React.FunctionComponent<Props> = memo(({ isLoading, isHaveResults, isError, items }) => (
+export const GithubProjectView: React.FunctionComponent<Props> = memo(({
+  isLoading,
+  isHaveResults,
+  isError,
+  items,
+}) => (
   <div>
     {
       !isHaveResults && <p>Поиск не осуществлен</p>

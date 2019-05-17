@@ -8,9 +8,9 @@ interface Props {
   id: ITask['id'];
   description: ITask['description'];
   completed: ITask['completed'];
-  onChange: (id: ITask['id'])=> void;
-  onClick: (id: ITask['id'])=> void;
-};
+  onChange: (id: ITask['id']) => void;
+  onClick: (id: ITask['id']) => void;
+}
 
 export const TodoTaskItem: React.FunctionComponent<Props> = ({ id, description, completed, onChange, onClick }) => {
 

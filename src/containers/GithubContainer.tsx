@@ -19,14 +19,14 @@ interface Props {
 }
 
 class UnconnectedGithubContainer extends React.PureComponent<Props> {
-  onProjectFieldChange = (event) => {
+  onProjectFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     const { changeProjectText } = this.props;
 
     changeProjectText(name, value);
-  };
+  }
 
-  onProjectFormSubmit = (event) => {
+  onProjectFormSubmit = (event: React.FormEvent) => {
     const { projectText, findProjects } = this.props;
 
     event.preventDefault();
@@ -36,7 +36,7 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
     }
 
     findProjects(projectText);
-  };
+  }
 
   render() {
     const { projectText, isLoading, isHaveResults, isError, items } = this.props;
@@ -60,7 +60,21 @@ class UnconnectedGithubContainer extends React.PureComponent<Props> {
   }
 }
 
-const mapStateToProps = ({ github: { projectText, isLoading, isHaveResults, isError, items } }) => ({ projectText, isLoading, isHaveResults, isError, items});
+const mapStateToProps = ({
+  github: {
+    projectText,
+    isLoading,
+    isHaveResults,
+    isError,
+    items,
+  },
+}) => ({
+    projectText,
+    isLoading,
+    isHaveResults,
+    isError,
+    items,
+});
 
 const mapDispatchToProps = {
   changeProjectText: ACTIONS.changeProjectText,

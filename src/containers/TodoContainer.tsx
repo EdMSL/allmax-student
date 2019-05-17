@@ -8,7 +8,7 @@ import { TodoTaskForm } from '~/components/todo/TodoTaskForm';
 import { TodoTasksList } from '~/components/todo/TodoTasksList';
 
 import ACTIONS from '~/redux/actions';
-import { ITodoState } from '~/modules/todo/reducer';
+import { ITodoState, ITask } from '~/modules/todo/reducer';
 
 interface Props {
   taskText: ITodoState['taskText'];
@@ -31,13 +31,13 @@ class UnconnectedTodoContainer extends PureComponent<Props> {
     addTask();
   }
 
-  onTaskCheckboxlChange = (id) => {
+  onTaskCheckboxlChange = (id: ITask['id']) => {
     const { completeTask } = this.props;
 
     completeTask(id);
   }
 
-  onDeleteTaskButtonClick = (id) => {
+  onDeleteTaskButtonClick = (id: ITask['id']) => {
     const { deleteTask } = this.props;
 
     deleteTask(id);
